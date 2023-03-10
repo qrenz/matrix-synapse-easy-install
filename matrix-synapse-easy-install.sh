@@ -49,7 +49,7 @@ then
     echo "INFO - fetching certificate"
 	DOMAIN=$(tail -n1 /etc/matrix-synapse/conf.d/server_name.yaml | cut -f2 -d":" | sed 's/ //g')
 	systemctl stop nginx
-	certbot certonly --standalone -d $DOMAIN -d matrix.$DOMAIN -d element.$DOMAIN --agree-tos -n -m webmaster@$DOMAIN
+	certbot certonly --standalone -d chat.badvibez.com -d matrix.$DOMAIN -d element.$DOMAIN --agree-tos -n -m webmaster@$DOMAIN
 	systemctl start nginx
 	if [ -f "/etc/letsencrypt/live/$DOMAIN/cert.pem" ]
 then
